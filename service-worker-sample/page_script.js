@@ -2,10 +2,11 @@ var images = document.getElementsByTagName("img");
 
 for (var i = 0; i < images.length; i++) {
   images[i].addEventListener("click", setAlert);
+  console.log("Image added", images[i]);
 }
 
 function setAlert() {
-  alert("awesome lego set!");
+  alert("Images are set!");
 }
 
 if ("serviceWorker" in navigator) {
@@ -13,14 +14,14 @@ if ("serviceWorker" in navigator) {
     .register("service_worker.js", {
       scope: ""
     })
-    .then(function(reg) {
-      console.log("Registration succeeded. Scope is " + reg.scope);
+    .then(function(registration) {
+      console.log("Registration succeeded. Scope is " + registration.scope);
 
-      if (reg.installing) {
+      if (registration.installing) {
         console.log("Service worker installing");
-      } else if (reg.waiting) {
+      } else if (registration.waiting) {
         console.log("Service worker installed");
-      } else if (reg.active) {
+      } else if (registration.active) {
         console.log("Service worker active");
       }
     })
