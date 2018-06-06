@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "BlobInjector",
+  "version": "0.1",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "https://*/*",
+    "http://localhost/*",
+    "webRequest",
+    "webRequestBlocking",
+    "https://demo.jobsito.com/*"
+  ],
+  "browser_action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "page_script.js"
+      ],
+      "matches": [
+        "https://www.google.com/"
+      ]
+    }
+  ]
+}
